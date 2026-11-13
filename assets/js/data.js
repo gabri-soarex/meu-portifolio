@@ -27,7 +27,7 @@ window.PORTFOLIO = {
 
   about: [
     "Sou o Gabriel, profissional DevOps de Garça, interior de São Paulo, apaixonado por automação e computação em nuvem. Gosto de olhar para um processo repetitivo e pensar: \"como faço isso rodar sozinho?\" — seja um deploy, a criação de um ambiente ou a configuração de uma infraestrutura inteira.",
-    "Meu foco hoje é a AWS: provisiono recursos com Terraform, construo pipelines de CI/CD e busco sempre ambientes reproduzíveis, seguros e fáceis de manter. Este próprio portfólio é um exemplo: ele é publicado automaticamente na AWS por um pipeline GitLab CI/CD a cada push.",
+    "Meu foco hoje é a AWS: provisiono recursos com Terraform, construo pipelines de CI/CD e busco sempre ambientes reproduzíveis, seguros e fáceis de manter.",
   ],
 
   facts: [
@@ -59,13 +59,13 @@ window.PORTFOLIO = {
     {
       title: "Meu Portfólio — Gabriel Soares",
       description:
-        "Este site! Portfólio responsivo em HTML, CSS e JS puros, hospedado na AWS: arquivos no S3, entrega via CloudFront com HTTPS e deploy contínuo por pipeline GitLab CI/CD, autenticando na AWS via OIDC — sem chaves de acesso fixas.",
-      tech: ["AWS S3", "CloudFront", "IAM OIDC", "GitLab CI/CD"],
-      category: "Cloud",
-      emoji: "☁️",
+        "Este site! Portfólio responsivo em HTML, CSS e JavaScript puros, sem frameworks, com tema claro/escuro, filtros de projetos e conteúdo centralizado em um único arquivo de dados. Publicado no GitHub Pages.",
+      tech: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      category: "Web",
+      emoji: "💼",
       image: "assets/img/projetos/portfolio.jpg",
       repo: "https://github.com/gabri-soarex/portfolio",
-      demo: "", // coloque aqui o endereço do site depois de publicado (ex.: https://xxxx.cloudfront.net)
+      demo: "https://gabri-soarex.github.io/portfolio/",
     },
     {
       title: "FK Eventos",
