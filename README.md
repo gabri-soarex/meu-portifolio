@@ -2,7 +2,7 @@
 
 Meu portfólio pessoal de DevOps e Cloud.
 
-🔗 **Acesse:** https://gabri-soarex.github.io/portifolio/
+🔗 **Acesse:** https://gabri-soarex.github.io/meu-portifolio/
 
 ## Tecnologias
 
