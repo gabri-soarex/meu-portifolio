@@ -64,8 +64,8 @@ window.PORTFOLIO = {
       category: "Web",
       emoji: "💼",
       image: "assets/img/projetos/portfolio.jpg",
-      repo: "https://github.com/gabri-soarex/portfolio",
-      demo: "https://gabri-soarex.github.io/portfolio/",
+      repo: "https://github.com/gabri-soarex/portifolio",
+      demo: "https://gabri-soarex.github.io/portifolio/",
     },
     {
       title: "FK Eventos",
