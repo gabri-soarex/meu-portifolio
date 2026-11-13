@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio</title>
+  <meta name="description" content="Portfólio pessoal de desenvolvedor" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__logo" id="logo"></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Alternar tema">◐</button>
+        <button class="icon-btn nav__burger" id="menuToggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container hero__inner">
+        <p class="hero__hello mono">Olá, eu sou</p>
+        <h1 class="hero__name" id="heroName"></h1>
+        <h2 class="hero__role"><span id="typed"></span><span class="caret">|</span></h2>
+        <p class="hero__summary" id="heroSummary"></p>
+        <div class="hero__cta">
+          <a href="#projetos" class="btn btn--primary">Ver projetos</a>
+          <a href="#" class="btn btn--ghost" id="cvLink" target="_blank" rel="noopener">Baixar CV</a>
+        </div>
+        <div class="socials" id="heroSocials"></div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="container about">
+        <div class="about__photo reveal">
+          <img id="avatar" alt="Foto de perfil" />
+        </div>
+        <div class="reveal">
+          <h2 class="section__title"><span class="mono">01.</span> Sobre mim</h2>
+          <div id="aboutText" class="about__text"></div>
+          <ul class="about__facts" id="aboutFacts"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">02.</span> Skills</h2>
+        <div class="skills" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">03.</span> Projetos</h2>
+        <div class="filters reveal" id="filters"></div>
+        <div class="projects" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- CERTIFICADOS -->
+    <section id="certificados" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">00.</span> Certificados & Eventos</h2>
+        <div class="certs" id="certsGrid"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">04.</span> Experiência & Formação</h2>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section">
+      <div class="container contact reveal">
+        <h2 class="section__title"><span class="mono">05.</span> Contato</h2>
+        <p class="contact__text" id="contactText"></p>
+        <a class="btn btn--primary btn--lg" id="contactEmail">Diga olá 👋</a>
+        <div class="socials socials--center" id="contactSocials"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p id="footerText"></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

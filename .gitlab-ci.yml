@@ -1,0 +1,44 @@
+# Deploy do portfólio na AWS (S3 + CloudFront) via GitLab CI/CD
+# Autenticação por OIDC: o GitLab gera um token temporário e a AWS troca por credenciais
+# de curta duração — nenhuma chave de acesso fica guardada no GitLab.
+#
+# Variáveis de CI/CD necessárias (Settings → CI/CD → Variables):
+#   AWS_ROLE_ARN                 ARN da role IAM que confia no GitLab (OIDC)
+#   S3_BUCKET                    nome do bucket
+#   CLOUDFRONT_DISTRIBUTION_ID   ID da distribuição (opcional)
+#   AWS_DEFAULT_REGION           ex.: us-east-1
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image:
+    name: amazon/aws-cli:2.22.0
+    entrypoint: [""]
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: sts.amazonaws.com
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  script:
+    - >
+      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s"
+      $(aws sts assume-role-with-web-identity
+      --role-arn "$AWS_ROLE_ARN"
+      --role-session-name "gitlab-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
+      --web-identity-token "$GITLAB_OIDC_TOKEN"
+      --duration-seconds 3600
+      --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]"
+      --output text))
+    - aws sts get-caller-identity
+    - >
+      aws s3 sync . "s3://$S3_BUCKET" --delete
+      --exclude ".git/*" --exclude ".github/*" --exclude ".claude/*"
+      --exclude ".gitlab-ci.yml" --exclude "README.md" --exclude ".gitignore"
+    - |
+      if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+        aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
+      else
+        echo "CLOUDFRONT_DISTRIBUTION_ID não definido — pulando invalidação."
+      fi
